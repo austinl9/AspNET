@@ -12,6 +12,8 @@ using Microsoft.Extensions.Logging;
 using TutorialApp.Data;
 using TutorialApp.Models;
 using TutorialApp.Services;
+using ContosoUniversity.Data;
+using ContosoUniversity.Models;
 
 namespace TutorialApp
 {
@@ -36,9 +38,30 @@ namespace TutorialApp
 
         public IConfigurationRoot Configuration { get; }
 
+        //is responsible for defining the services the application will use
+        //including platform features like entity framework core and asp.net core mvc
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //asp.net core implements dependency injection by default
+            // dependency injection pattern is a particular implementation of IOC means that objects do not create other objects 
+            // on which they rely to do their work
+
+            //Dependency injection
+            // reduces class coupling, increases code reusing, code maintainability, application testing
+            //high level modules should not depend on low level modules both should depend on abstractions -> strategy design pattern
+
+            //it is helpful to have a class dedicated to creating these classes with their associated dependencies -> containers IOC
+            // it's just a factory that is responsible for providing instances of types that are requested from it
+
+            //ASP.NET core includes a simple built in container -> IServiceProvider that supports constructor
+            //injection by default
+
+            //
+            services.AddDbContext<SchoolContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -55,7 +78,7 @@ namespace TutorialApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, SchoolContext context)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -83,6 +106,10 @@ namespace TutorialApp
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //add the context to the method signature so that asp.net dependency inject can provide it
+            //to your dbinitializer class
+            DbInitializer.Initialize(context);
         }
     }
 }

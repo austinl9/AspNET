@@ -1,0 +1,10 @@
+C:\Users\aliu\personalRepo\AspNET\TutorialApp\bin\Debug\netcoreapp1.0\TutorialApp.deps.json
+C:\Users\aliu\personalRepo\AspNET\TutorialApp\bin\Debug\netcoreapp1.0\TutorialApp.runtimeconfig.json
+C:\Users\aliu\personalRepo\AspNET\TutorialApp\bin\Debug\netcoreapp1.0\TutorialApp.runtimeconfig.dev.json
+C:\Users\aliu\personalRepo\AspNET\TutorialApp\bin\Debug\netcoreapp1.0\TutorialApp.dll
+C:\Users\aliu\personalRepo\AspNET\TutorialApp\bin\Debug\netcoreapp1.0\TutorialApp.pdb
+C:\Users\aliu\personalRepo\AspNET\TutorialApp\obj\Debug\netcoreapp1.0\TutorialApp.csprojResolveAssemblyReference.cache
+C:\Users\aliu\personalRepo\AspNET\TutorialApp\obj\Debug\netcoreapp1.0\UserSecretsAssemblyInfo.cs
+C:\Users\aliu\personalRepo\AspNET\TutorialApp\obj\Debug\netcoreapp1.0\TutorialApp.AssemblyInfo.cs
+C:\Users\aliu\personalRepo\AspNET\TutorialApp\obj\Debug\netcoreapp1.0\TutorialApp.dll
+C:\Users\aliu\personalRepo\AspNET\TutorialApp\obj\Debug\netcoreapp1.0\TutorialApp.pdb
